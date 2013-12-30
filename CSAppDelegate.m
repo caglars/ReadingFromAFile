@@ -12,7 +12,14 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    NSString *tmp;
+    NSArray *lines;
+    NSStringEncoding encoding;
+    lines = [[NSString stringWithContentsOfFile:@"testFile.txt" usedEncoding:&encoding error:NULL ] componentsSeparatedByString:@" "];
+    NSEnumerator *nse = [lines objectEnumerator];
+    while (tmp = [nse nextObject]) {
+        NSLog(@"%@",tmp);
+    }
 }
 
 @end
